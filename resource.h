@@ -7,13 +7,16 @@
 #define IDS_APP_TITLE                   103
 #define IDD_ABOUTBOX                    103
 #define IDM_ABOUT                       104
+#define IDS_ABORT_HINT                  104
 #define IDM_EXIT                        105
+#define IDS_ABORT_TITLE                 105
+#define IDS_UNKNOWN                     106
 #define IDI_GITASK                      107
+#define IDS_UNLINK_HELP                 107
 #define IDI_SMALL                       108
 #define IDC_GITASK                      109
 #define IDR_MAINFRAME                   128
 #define IDC_CONTENT                     1000
-#define IDC_BUTTON1                     1001
 #define IDC_UNLINK_HELP                 1001
 #define IDC_STATIC                      -1
 
