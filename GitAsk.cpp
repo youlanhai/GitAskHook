@@ -12,8 +12,8 @@ processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
 
 #define MAX_LOADSTRING 100
 
-const int RET_RETRY = 1;
-const int RET_ABORT = 0;
+const int RET_RETRY = 0;
+const int RET_ABORT = 1;
 
 // Global Variables:
 
@@ -28,14 +28,14 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
-    int ret = (int)DialogBox(hInstance, MAKEINTRESOURCE(IDD_ABOUTBOX), nullptr, OnDlgProc);
-    if (ret == TRUE)
+    int ret = (int)DialogBoxParam(hInstance, MAKEINTRESOURCE(IDD_ABOUTBOX), nullptr, OnDlgProc, 0);
+    if (ret == IDOK)
     {
         return RET_RETRY;
     }
     
     ret = MessageBox(nullptr, TEXT("强行终止，会导致工作目录文件损坏。请先备份文件后，再点击确定！"), TEXT("确定要终止吗?"), MB_OKCANCEL | MB_ICONWARNING);
-    return ret == TRUE ? RET_ABORT : RET_RETRY;
+    return ret == IDOK ? RET_ABORT : RET_RETRY;
 }
 
 // Message handler for about box.
